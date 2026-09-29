@@ -9,7 +9,8 @@ export function dateKey(offsetDays: number) {
 }
 
 export function daysUntil(dateStr: string) {
-  const ms = new Date(dateStr + "T00:00:00").getTime() - new Date(todayKey() + "T00:00:00").getTime();
+  const ms =
+    new Date(dateStr + "T00:00:00").getTime() - new Date(todayKey() + "T00:00:00").getTime();
   return Math.max(0, Math.round(ms / 86400000));
 }
 
@@ -97,7 +98,9 @@ export function generatePlan(opts: {
       subjectId: subject.id,
       label: subject.name,
       reason: `Exam in ${daysUntil(subject.examDate)} days, difficulty ${subject.difficulty}/5, confidence ${subject.confidence}/5 → ${
-        inPeak ? "placed inside your peak hours so the hardest thinking lands when you are sharpest." : "placed outside peak hours because lighter recall work survives lower energy."
+        inPeak
+          ? "placed inside your peak hours so the hardest thinking lands when you are sharpest."
+          : "placed outside peak hours because lighter recall work survives lower energy."
       }`,
     });
     cursor += blockLen;

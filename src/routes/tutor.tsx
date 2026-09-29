@@ -68,7 +68,10 @@ function Tutor() {
       />
 
       <div className="mb-4 flex gap-2">
-        <QuestButton variant={mode === "explain" ? "royal" : "ghost"} onClick={() => setMode("explain")}>
+        <QuestButton
+          variant={mode === "explain" ? "royal" : "ghost"}
+          onClick={() => setMode("explain")}
+        >
           <Wand2 className="h-4 w-4" /> Explain to me
         </QuestButton>
         <QuestButton variant={mode === "teach" ? "gold" : "ghost"} onClick={() => setMode("teach")}>

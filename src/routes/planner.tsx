@@ -1,6 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
-import { BatteryLow, BatteryMedium, BatteryFull, Coffee, HelpCircle, Moon, Sparkles, Sun, Tent } from "lucide-react";
+import {
+  BatteryLow,
+  BatteryMedium,
+  BatteryFull,
+  Coffee,
+  HelpCircle,
+  Moon,
+  Sparkles,
+  Sun,
+  Tent,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 import { Shell } from "@/components/planora/Shell";
 import { EmptyState, GlassCard, QuestButton, SectionTitle } from "@/components/planora/ui";
@@ -76,7 +86,9 @@ function Planner() {
               key={key}
               onClick={() => setEnergy(key)}
               className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all ${
-                state.energy === key ? "gradient-magic text-primary-foreground" : "text-muted-foreground"
+                state.energy === key
+                  ? "gradient-magic text-primary-foreground"
+                  : "text-muted-foreground"
               }`}
             >
               <Icon className="h-4 w-4" /> {label}
@@ -154,8 +166,8 @@ function Planner() {
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-bold">{s.name}</p>
                       <p className="text-xs text-muted-foreground">
-                        Exam {new Date(s.examDate + "T00:00:00").toLocaleDateString()} · diff {s.difficulty}/5 ·
-                        conf {s.confidence}/5
+                        Exam {new Date(s.examDate + "T00:00:00").toLocaleDateString()} · diff{" "}
+                        {s.difficulty}/5 · conf {s.confidence}/5
                       </p>
                     </div>
                   </li>

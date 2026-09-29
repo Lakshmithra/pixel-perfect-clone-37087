@@ -83,11 +83,22 @@ function Kingdom() {
 
       <GlassCard className="overflow-hidden p-0">
         <div className="relative">
-          <svg viewBox="0 0 800 420" className="h-[320px] w-full md:h-[460px]" role="img" aria-label="Your castle kingdom">
+          <svg
+            viewBox="0 0 800 420"
+            className="h-[320px] w-full md:h-[460px]"
+            role="img"
+            aria-label="Your castle kingdom"
+          >
             <defs>
               <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor={isNight ? "oklch(0.2 0.09 285)" : "oklch(0.86 0.1 250)"} />
-                <stop offset="100%" stopColor={isNight ? "oklch(0.32 0.11 320)" : "oklch(0.93 0.08 350)"} />
+                <stop
+                  offset="0%"
+                  stopColor={isNight ? "oklch(0.2 0.09 285)" : "oklch(0.86 0.1 250)"}
+                />
+                <stop
+                  offset="100%"
+                  stopColor={isNight ? "oklch(0.32 0.11 320)" : "oklch(0.93 0.08 350)"}
+                />
               </linearGradient>
               <radialGradient id="glowWin">
                 <stop offset="0%" stopColor="var(--gold)" />
@@ -128,7 +139,10 @@ function Kingdom() {
               <motion.g
                 initial={{ x: -180 }}
                 animate={{ x: 900, y: [0, -18, 0] }}
-                transition={{ x: { duration: 18, repeat: Infinity, ease: "linear" }, y: { duration: 3, repeat: Infinity } }}
+                transition={{
+                  x: { duration: 18, repeat: Infinity, ease: "linear" },
+                  y: { duration: 3, repeat: Infinity },
+                }}
               >
                 <path
                   d="M0 110 q26-22 54-8 q16-26 40-18 q-10 14 2 24 q26 4 34 22 q-30 6-48 0 q-22 14-48 2 q-18 6-34-4z"
@@ -139,7 +153,11 @@ function Kingdom() {
             )}
 
             {/* ground */}
-            <path d="M0 340 Q400 300 800 344 L800 420 L0 420Z" fill="var(--primary)" opacity="0.35" />
+            <path
+              d="M0 340 Q400 300 800 344 L800 420 L0 420Z"
+              fill="var(--primary)"
+              opacity="0.35"
+            />
 
             {/* towers per subject */}
             {state.subjects.map((s, i) => {
@@ -152,7 +170,12 @@ function Kingdom() {
               const ready = readiness(state.sessions, s);
               const litWindows = Math.round((ready / 100) * 3);
               return (
-                <motion.g key={s.id} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }}>
+                <motion.g
+                  key={s.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.12 }}
+                >
                   <motion.rect
                     x={x}
                     width={w}
@@ -166,7 +189,16 @@ function Kingdom() {
                   />
                   {/* battlements */}
                   {[0, 1, 2, 3].map((b) => (
-                    <rect key={b} x={x + 4 + b * 17} y={y - 12} width="12" height="14" fill={`var(${s.colorVar})`} stroke="var(--gold)" strokeWidth="1" />
+                    <rect
+                      key={b}
+                      x={x + 4 + b * 17}
+                      y={y - 12}
+                      width="12"
+                      height="14"
+                      fill={`var(${s.colorVar})`}
+                      stroke="var(--gold)"
+                      strokeWidth="1"
+                    />
                   ))}
                   {/* flag for streaks */}
                   {streak >= 3 && (
@@ -188,7 +220,15 @@ function Kingdom() {
                     if (wy > 342 - 18) return null;
                     return (
                       <g key={k}>
-                        {lit && <circle cx={x + w / 2} cy={wy + 8} r="20" fill="url(#glowWin)" opacity="0.7" />}
+                        {lit && (
+                          <circle
+                            cx={x + w / 2}
+                            cy={wy + 8}
+                            r="20"
+                            fill="url(#glowWin)"
+                            opacity="0.7"
+                          />
+                        )}
                         <rect
                           x={x + w / 2 - 9}
                           y={wy}
@@ -200,10 +240,23 @@ function Kingdom() {
                       </g>
                     );
                   })}
-                  <text x={x + w / 2} y="366" textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--foreground)">
+                  <text
+                    x={x + w / 2}
+                    y="366"
+                    textAnchor="middle"
+                    fontSize="12"
+                    fontWeight="700"
+                    fill="var(--foreground)"
+                  >
                     {s.name.length > 12 ? s.name.slice(0, 11) + "…" : s.name}
                   </text>
-                  <text x={x + w / 2} y="382" textAnchor="middle" fontSize="10" fill="var(--muted-foreground)">
+                  <text
+                    x={x + w / 2}
+                    y="382"
+                    textAnchor="middle"
+                    fontSize="10"
+                    fill="var(--muted-foreground)"
+                  >
                     {hours.toFixed(1)}h · {ready}% ready
                   </text>
                   {/* cracks when days were missed */}
@@ -223,15 +276,28 @@ function Kingdom() {
 
             {/* torches for streak days */}
             {Array.from({ length: Math.min(streak, 8) }, (_, i) => (
-              <motion.g key={i} animate={{ opacity: [0.6, 1, 0.6] }} transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.2 }}>
+              <motion.g
+                key={i}
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.2 }}
+              >
                 <rect x={60 + i * 88} y="330" width="4" height="22" fill="var(--gold-foreground)" />
-                <circle cx={62 + i * 88} cy="326" r="7" fill="var(--gold)" style={{ filter: "drop-shadow(0 0 10px var(--gold))" }} />
+                <circle
+                  cx={62 + i * 88}
+                  cy="326"
+                  r="7"
+                  fill="var(--gold)"
+                  style={{ filter: "drop-shadow(0 0 10px var(--gold))" }}
+                />
               </motion.g>
             ))}
 
             {/* fog for missed days */}
             {missed > 0 && (
-              <motion.g initial={{ opacity: 0 }} animate={{ opacity: Math.min(0.55, missed * 0.18) }}>
+              <motion.g
+                initial={{ opacity: 0 }}
+                animate={{ opacity: Math.min(0.55, missed * 0.18) }}
+              >
                 <motion.ellipse
                   cx="400"
                   cy="330"
@@ -279,12 +345,25 @@ function Kingdom() {
             transition={{ duration: 2.4, repeat: Infinity }}
           >
             <svg width="120" height="96" viewBox="0 0 120 96" aria-hidden>
-              <rect x="10" y="40" width="100" height="46" rx="8" fill="var(--gold)" opacity={goalMet ? 1 : 0.4} />
+              <rect
+                x="10"
+                y="40"
+                width="100"
+                height="46"
+                rx="8"
+                fill="var(--gold)"
+                opacity={goalMet ? 1 : 0.4}
+              />
               <path d="M10 44 q50-34 100 0z" fill="var(--primary)" opacity={goalMet ? 0.9 : 0.4} />
               <rect x="52" y="52" width="16" height="20" rx="4" fill="var(--gold-foreground)" />
             </svg>
           </motion.div>
-          <QuestButton variant="gold" disabled={!goalMet || spinning} onClick={openChest} className="w-full">
+          <QuestButton
+            variant="gold"
+            disabled={!goalMet || spinning}
+            onClick={openChest}
+            className="w-full"
+          >
             <Sparkles className="h-4 w-4" /> Spin the lucky wheel
           </QuestButton>
           {spinning && (

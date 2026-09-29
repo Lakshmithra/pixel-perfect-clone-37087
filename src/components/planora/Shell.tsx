@@ -50,7 +50,11 @@ export function Shell({ children }: { children: ReactNode }) {
               aria-label="Toggle day and night kingdom"
               className="glass rounded-full p-2.5"
             >
-              {isNight ? <Moon className="h-4 w-4 text-gold" /> : <Sun className="h-4 w-4 text-gold" />}
+              {isNight ? (
+                <Moon className="h-4 w-4 text-gold" />
+              ) : (
+                <Sun className="h-4 w-4 text-gold" />
+              )}
             </motion.button>
           </div>
         </div>

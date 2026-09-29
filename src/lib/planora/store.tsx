@@ -8,10 +8,38 @@ export const SUBJECT_COLORS = ["--chart-1", "--chart-2", "--chart-3", "--chart-4
 
 function seedState(): PlanoraState {
   const subjects: Subject[] = [
-    { id: "s1", name: "Organic Chemistry", examDate: dateKey(6), difficulty: 5, confidence: 2, colorVar: "--chart-1" },
-    { id: "s2", name: "Calculus II", examDate: dateKey(12), difficulty: 4, confidence: 3, colorVar: "--chart-2" },
-    { id: "s3", name: "World History", examDate: dateKey(20), difficulty: 2, confidence: 4, colorVar: "--chart-3" },
-    { id: "s4", name: "Physics — Waves", examDate: dateKey(9), difficulty: 4, confidence: 2, colorVar: "--chart-4" },
+    {
+      id: "s1",
+      name: "Organic Chemistry",
+      examDate: dateKey(6),
+      difficulty: 5,
+      confidence: 2,
+      colorVar: "--chart-1",
+    },
+    {
+      id: "s2",
+      name: "Calculus II",
+      examDate: dateKey(12),
+      difficulty: 4,
+      confidence: 3,
+      colorVar: "--chart-2",
+    },
+    {
+      id: "s3",
+      name: "World History",
+      examDate: dateKey(20),
+      difficulty: 2,
+      confidence: 4,
+      colorVar: "--chart-3",
+    },
+    {
+      id: "s4",
+      name: "Physics — Waves",
+      examDate: dateKey(9),
+      difficulty: 4,
+      confidence: 2,
+      colorVar: "--chart-4",
+    },
   ];
   const sessions: StudySession[] = [];
   let n = 0;
@@ -110,9 +138,12 @@ export function PlanoraProvider({ children }: { children: ReactNode }) {
     toggleRestDay: (date = todayKey()) =>
       setState((p) => ({
         ...p,
-        restDays: p.restDays.includes(date) ? p.restDays.filter((d) => d !== date) : [...p.restDays, date],
+        restDays: p.restDays.includes(date)
+          ? p.restDays.filter((d) => d !== date)
+          : [...p.restDays, date],
       })),
-    addReward: (text) => setState((p) => ({ ...p, rewards: [{ date: todayKey(), text }, ...p.rewards].slice(0, 20) })),
+    addReward: (text) =>
+      setState((p) => ({ ...p, rewards: [{ date: todayKey(), text }, ...p.rewards].slice(0, 20) })),
     reset: () => {
       localStorage.removeItem(KEY);
       setState(seedState());

@@ -48,7 +48,10 @@ function Progress() {
   if (state.sessions.length === 0) {
     return (
       <Shell>
-        <EmptyState title="No scrolls written yet" hint="Finish a focus session and your progress appears here." />
+        <EmptyState
+          title="No scrolls written yet"
+          hint="Finish a focus session and your progress appears here."
+        />
       </Shell>
     );
   }

@@ -30,9 +30,17 @@ export const Route = createFileRoute("/")({
 
 const QUIZ: { q: string; a: string; b: string }[] = [
   { q: "It's 6am. Your mind is…", a: "Already sharp and curious", b: "Deeply asleep, thank you" },
-  { q: "Best time to face the hardest chapter?", a: "Early, before the world wakes", b: "Late, when it's quiet" },
+  {
+    q: "Best time to face the hardest chapter?",
+    a: "Early, before the world wakes",
+    b: "Late, when it's quiet",
+  },
   { q: "After dinner you feel…", a: "Winding down", b: "Suddenly brilliant" },
-  { q: "Your ideal revision snack hour?", a: "Morning tea and notes", b: "Midnight cocoa and notes" },
+  {
+    q: "Your ideal revision snack hour?",
+    a: "Morning tea and notes",
+    b: "Midnight cocoa and notes",
+  },
   { q: "Alarms are…", a: "A friend I trust", b: "A villain I negotiate with" },
 ];
 
@@ -112,7 +120,9 @@ function Onboarding() {
             >
               {step === 0 && (
                 <div className="space-y-4">
-                  <h2 className="font-display text-2xl font-extrabold">Who approaches the gates?</h2>
+                  <h2 className="font-display text-2xl font-extrabold">
+                    Who approaches the gates?
+                  </h2>
                   <input
                     autoFocus
                     value={name}
@@ -154,7 +164,9 @@ function Onboarding() {
                             value={s.examDate}
                             onChange={(e) =>
                               setSubjects((p) =>
-                                p.map((x) => (x.id === s.id ? { ...x, examDate: e.target.value } : x)),
+                                p.map((x) =>
+                                  x.id === s.id ? { ...x, examDate: e.target.value } : x,
+                                ),
                               )
                             }
                             className="rounded-xl border border-input bg-background/60 px-3 py-2 text-sm outline-none"
@@ -214,7 +226,9 @@ function Onboarding() {
 
               {step === 2 && (
                 <div className="space-y-4">
-                  <h2 className="font-display text-2xl font-extrabold">How many hours can you ride?</h2>
+                  <h2 className="font-display text-2xl font-extrabold">
+                    How many hours can you ride?
+                  </h2>
                   <p className="font-display text-5xl font-extrabold text-glow">{hours}h</p>
                   <input
                     type="range"
@@ -264,8 +278,8 @@ function Onboarding() {
                       ) : (
                         <Moon className="h-5 w-5 text-gold" />
                       )}
-                      You are a {peakType === "sunrise" ? "Sunrise Knight" : "Moonlight Wizard"} — peak
-                      hours {peakType === "sunrise" ? "6am–11am" : "6pm–11pm"}.
+                      You are a {peakType === "sunrise" ? "Sunrise Knight" : "Moonlight Wizard"} —
+                      peak hours {peakType === "sunrise" ? "6am–11am" : "6pm–11pm"}.
                     </p>
                   )}
                 </div>
