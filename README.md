@@ -4,7 +4,7 @@
 
 Planora is a web app prototype that creates personalized study schedules from a student's **exam dates, subjects, and available time**, and keeps them motivated with streaks, rewards, and a castle that grows as they study.
 
-Built for **[Kanal Hackathon]** at **PSG College of Technology** | Problem Statement: *AI-Powered Study Planner*
+Built for **Kanal Hackathon** at **PSG College of Technology** | Problem Statement: *AI-Powered Study Planner*
 
 ---
 
