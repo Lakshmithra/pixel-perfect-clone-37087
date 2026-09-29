@@ -30,7 +30,7 @@ export const Route = createFileRoute("/kingdom")({
       },
     ],
   }),
-  component: Kingdom;
+  component: Kingdom,
 });
 
 const REWARDS = [
