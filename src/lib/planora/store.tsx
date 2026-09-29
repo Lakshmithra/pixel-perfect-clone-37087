@@ -85,7 +85,13 @@ interface Ctx {
   isNight: boolean;
 }
 
-const PlanoraContext = createContext<Ctx | null>(null);
+// Keep a single context instance even if this module is evaluated twice
+// (dev hot-reload or split route chunks), otherwise consumers read a fresh
+// empty context and crash with "must be used inside PlanoraProvider".
+const CTX_KEY = "__planora_context__";
+const globalScope = globalThis as unknown as Record<string, unknown>;
+const PlanoraContext = (globalScope[CTX_KEY] ??
+  (globalScope[CTX_KEY] = createContext<Ctx | null>(null))) as React.Context<Ctx | null>;
 
 export function PlanoraProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<PlanoraState>(seedState);
