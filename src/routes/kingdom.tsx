@@ -176,17 +176,17 @@ function Kingdom() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.12 }}
                 >
-                  <motion.rect
+                  <rect
                     x={x}
+                    y={y}
                     width={w}
+                    height={h}
                     rx="8"
                     fill={`var(${s.colorVar})`}
                     stroke="var(--gold)"
                     strokeWidth="1.5"
-                    initial={{ height: 0, y: 342 }}
-                    animate={{ height: h, y }}
-                    transition={{ type: "spring", stiffness: 60, damping: 14, delay: i * 0.12 }}
                   />
+
                   {/* battlements */}
                   {[0, 1, 2, 3].map((b) => (
                     <rect
