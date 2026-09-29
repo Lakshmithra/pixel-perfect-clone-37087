@@ -83,8 +83,8 @@ Planora is a **working prototype**, not a finished product:
 ## 💻 Run Locally
 
 ```bash
-git clone https://github.com/[your-username]/[repo-name].git
-cd [repo-name]
+git clone https://github.com/Lakshmithra/pixel-perfect-clone-37087.git
+cd pixel-perfect-clone-37087
 npm install
 npm run dev
 ```
@@ -104,4 +104,4 @@ Open the local address shown in the terminal (usually `http://localhost:5173`).
 
 ---
 
-**Team Name:** [Cosmo four] | **College:** PSG College of Technology, Coimbatore
+**Team Name:** Cosmo four | **College:** PSG College of Technology, Coimbatore
