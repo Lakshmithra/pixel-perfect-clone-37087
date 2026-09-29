@@ -88,7 +88,6 @@ function Kingdom() {
             className="h-[320px] w-full md:h-[460px]"
             role="img"
             aria-label="Your castle kingdom"
-            preserveAspectRatio="xMidYMid slice"
           >
             <defs>
               <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -107,7 +106,7 @@ function Kingdom() {
               </radialGradient>
             </defs>
 
-            <rect width="800" height="420" fill="url(#sky)" />
+            <rect x="-400" y="-100" width="1600" height="620" fill="url(#sky)" />
 
             {/* moon or sun */}
             <motion.circle
