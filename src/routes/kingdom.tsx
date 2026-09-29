@@ -304,7 +304,7 @@ function Kingdom() {
                   rx="460"
                   ry="70"
                   fill="white"
-                  animate={{ cx: [360, 440, 360] }}
+                  animate={{ x: [-40, 40, -40] }}
                   transition={{ duration: 16, repeat: Infinity }}
                 />
               </motion.g>
