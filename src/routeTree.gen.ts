@@ -10,33 +10,90 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FocusRouteImport } from './routes/focus'
+import { Route as KingdomRouteImport } from './routes/kingdom'
+import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as TutorRouteImport } from './routes/tutor'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FocusRoute = FocusRouteImport.update({
+  id: '/focus',
+  path: '/focus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KingdomRoute = KingdomRouteImport.update({
+  id: '/kingdom',
+  path: '/kingdom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlannerRoute = PlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TutorRoute = TutorRouteImport.update({
+  id: '/tutor',
+  path: '/tutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/focus': typeof FocusRoute
+  '/kingdom': typeof KingdomRoute
+  '/planner': typeof PlannerRoute
+  '/progress': typeof ProgressRoute
+  '/tutor': typeof TutorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/focus': typeof FocusRoute
+  '/kingdom': typeof KingdomRoute
+  '/planner': typeof PlannerRoute
+  '/progress': typeof ProgressRoute
+  '/tutor': typeof TutorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/focus': typeof FocusRoute
+  '/kingdom': typeof KingdomRoute
+  '/planner': typeof PlannerRoute
+  '/progress': typeof ProgressRoute
+  '/tutor': typeof TutorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/focus' | '/kingdom' | '/planner' | '/progress' | '/tutor'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/focus' | '/kingdom' | '/planner' | '/progress' | '/tutor'
+  id:
+    | '__root__'
+    | '/'
+    | '/focus'
+    | '/kingdom'
+    | '/planner'
+    | '/progress'
+    | '/tutor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FocusRoute: typeof FocusRoute
+  KingdomRoute: typeof KingdomRoute
+  PlannerRoute: typeof PlannerRoute
+  ProgressRoute: typeof ProgressRoute
+  TutorRoute: typeof TutorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +105,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/focus': {
+      id: '/focus'
+      path: '/focus'
+      fullPath: '/focus'
+      preLoaderRoute: typeof FocusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kingdom': {
+      id: '/kingdom'
+      path: '/kingdom'
+      fullPath: '/kingdom'
+      preLoaderRoute: typeof KingdomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planner': {
+      id: '/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof PlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tutor': {
+      id: '/tutor'
+      path: '/tutor'
+      fullPath: '/tutor'
+      preLoaderRoute: typeof TutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FocusRoute: FocusRoute,
+  KingdomRoute: KingdomRoute,
+  PlannerRoute: PlannerRoute,
+  ProgressRoute: ProgressRoute,
+  TutorRoute: TutorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
