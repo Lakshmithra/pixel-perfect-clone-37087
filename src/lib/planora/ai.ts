@@ -19,7 +19,7 @@ async function requestRealAI(prompt: string): Promise<string> {
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 function pick<T>(arr: T[], seed: number): T {
-  return arr[Math.abs(Math.floor(seed)) % arr.length];
+  return arr[Math.abs(Math.floor(seed)) % arr.length]!;
 }
 
 const tutorOpeners = [

@@ -59,7 +59,7 @@ export function generatePlan(opts: {
       start: peakStart,
       end: peakStart + 1,
       kind: "study",
-      subjectId: subjects[0]?.id,
+      ...(subjects[0] ? { subjectId: subjects[0].id } : {}),
       label: subjects[0] ? `Light review — ${subjects[0].name}` : "Light review",
       reason: "A single gentle block on the nearest exam keeps momentum without spending energy.",
     });
@@ -87,7 +87,7 @@ export function generatePlan(opts: {
 
   let cursor = peakStart;
   for (let i = 0; i < count; i++) {
-    const subject = ranked[i % ranked.length];
+    const subject = ranked[i % ranked.length]!;
     const inPeak = cursor >= peakStart && cursor + blockLen <= peakEnd;
     if (cursor >= sleepStart - 1) break;
     add({

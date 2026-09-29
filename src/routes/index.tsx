@@ -202,7 +202,7 @@ function Onboarding() {
                           examDate: dateKey(14),
                           difficulty: 3,
                           confidence: 3,
-                          colorVar: SUBJECT_COLORS[p.length % SUBJECT_COLORS.length],
+                          colorVar: SUBJECT_COLORS[p.length % SUBJECT_COLORS.length]!,
                         },
                       ])
                     }

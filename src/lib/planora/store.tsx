@@ -19,7 +19,7 @@ function seedState(): PlanoraState {
     if (d === 4) continue; // a missed day, so fog/cracks are visible
     const perDay = 2 + ((d * 7) % 3);
     for (let i = 0; i < perDay; i++) {
-      const subj = subjects[(d + i) % subjects.length];
+      const subj = subjects[(d + i) % subjects.length]!;
       sessions.push({
         id: `seed${n++}`,
         subjectId: subj.id,
