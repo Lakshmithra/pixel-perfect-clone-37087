@@ -1,4 +1,12 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type Context,
+  type ReactNode,
+} from "react";
 import type { Energy, PlanoraState, StudySession, Subject } from "./types";
 import { dateKey, todayKey } from "./plan";
 
@@ -91,7 +99,7 @@ interface Ctx {
 const CTX_KEY = "__planora_context__";
 const globalScope = globalThis as unknown as Record<string, unknown>;
 const PlanoraContext = (globalScope[CTX_KEY] ??
-  (globalScope[CTX_KEY] = createContext<Ctx | null>(null))) as React.Context<Ctx | null>;
+  (globalScope[CTX_KEY] = createContext<Ctx | null>(null))) as Context<Ctx | null>;
 
 export function PlanoraProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<PlanoraState>(seedState);
