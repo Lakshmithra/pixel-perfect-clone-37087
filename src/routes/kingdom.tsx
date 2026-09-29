@@ -88,6 +88,7 @@ function Kingdom() {
             className="h-[320px] w-full md:h-[460px]"
             role="img"
             aria-label="Your castle kingdom"
+            preserveAspectRatio="xMidYMid slice"
           >
             <defs>
               <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
