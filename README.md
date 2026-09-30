@@ -104,4 +104,4 @@ Open the local address shown in the terminal (usually `http://localhost:5173`).
 
 ---
 
-**Team Name:** Cosmo four | **College:** PSG College of Technology, Coimbatore
+**Team Name:** Cosmic four | **College:** PSG College of Technology, Coimbatore
